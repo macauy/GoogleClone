@@ -24,6 +24,7 @@ main {
 }
 
 
+/*********** HEADER ***********/
 header {
 	width: 100%;
     height: 60px;
@@ -95,15 +96,15 @@ nav ul li a:hover {
 .block {
     display: block;
 }
+/*********** FIN HEADER ***********/
 
 
-
+/*********** MAIN SECTION ***********/
 section {
-    flex-grow: 1;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
     min-height: 500px;
 }
 
@@ -114,9 +115,14 @@ section {
     margin-bottom: 27px;
 }
 
+
+/* Popup Busqueda */
 .search-box {
     width: 584px;
-    
+}
+
+.hidden {
+    display: none;
 }
 
 .busqueda {
@@ -128,6 +134,7 @@ section {
     max-width: 584px;
     margin-top: -1px;
     background-color: #fff;
+    z-index: 1;
 }
 .busqueda-line {
     border-top: 1px solid #e8eaed;
@@ -137,20 +144,43 @@ section {
 .busqueda ul {
     display: flex;
     flex-direction: column;
-    
 }
 
 .busqueda ul li {
     display: flex;
     align-items: center;
-    margin: 0 20px 0 14px;
-    padding: 5px 0;
+    padding: 5px 15px;
+}
+
+.busqueda ul li:hover { 
+    background-color: #f8f9fa;
+
+}
+
+.borrar {
+    display: none;
+    align-self: center;
+    color: #70757a;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.borrar:hover {
+    color: #1558d6;
+    text-decoration: underline;
+}
+
+.busqueda ul li:hover > .borrar {
+    display:inline;
 }
 
 .busqueda ul li span {
     font-size: 16px;
     color: #52188c;
+    cursor: default;
+    flex-grow: 1;
 }
+
 
 .recent-img {
     background: url(../images/search.webp) no-repeat 0 -21px;
@@ -162,13 +192,18 @@ section {
     margin-right: 20px;
 }
 
+
+
 .busqueda .botones {
     text-align: center;
     vertical-align: center;
     min-height: 70px;
     margin-top: 10px;
 }
+/* Fin Popup */
 
+
+/* Search bar */
 .search {
     display: flex;
     justify-content: space-between;
@@ -178,11 +213,12 @@ section {
     width: 584px;
     max-width: 584px;
     min-height: 45px;
-    padding: 5px 8px 0 14px;
-    /*  */
+    padding: 4px 8px 1px 14px;   
+}
+
+.search-popup {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    
     border-color: rgba(223,225,229,0);
     box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
 }
@@ -208,7 +244,7 @@ section {
     width: 20px;
     height: 20px;
     line-height: 20px;
-    margin-top: -6px;
+    margin-top: -2px;
     margin-right: 10px;
 }
 
@@ -230,6 +266,8 @@ section {
     max-width: 100%;
     max-height: 100%;
 }
+/* Fin Search Bar */
+
 
 .botones {
     margin-top: 20px;
@@ -253,9 +291,10 @@ section {
     color: #202124;
     background-color: #f8f9fa;
 }
+/*********** FIN SECTION ***********/
 
 
-
+/************* FOOTER *************/
 footer {
     width: 100%;
     background-color: #f2f2f2;
@@ -303,6 +342,76 @@ footer .footer-left {
 footer .footer-right {
     justify-self: right;
 }
+/*********** END FOOTER ***********/
 
 
+.apps-container {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 2px 6px 2px rgb(60 64 67 / 15%);
+    overflow-x: hidden;
+    padding-top: 0;
+    position: absolute;
+    right: 15px;
+    top: 60px;
+    width: 315px;
+    height: 450px;
+    z-index: 2;
+}
 
+.apps-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.apps-container ul li {
+    background-size: 40px 40px;
+    width: 84px;
+    height: 84px;
+    display: inline-block;
+    padding: 6px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    *background-size: contain;    
+}
+
+.apps-container ul li:nth-child(1) {
+    background-image: url(../images/drive.png);
+}
+
+
+.apps-container ul li:nth-child(2) {
+    background-image: url(../images/google.png);
+}
+
+.apps-container ul li:nth-child(3) {
+    background-image: url(../images/maps.png);
+}
+
+.apps-container ul li:nth-child(4) {
+    background-image: url(../images/gmail.png);
+}
+
+.apps-container ul li:nth-child(5) {
+    background-image: url(../images/calendar.png);
+}
+
+.apps-container ul li:nth-child(6) {
+    background-image: url(../images/youtube.png);
+}
+
+.apps-container ul li:nth-child(7) {
+    background-image: url(../images/play.png);
+}
+
+.apps-container ul li:nth-child(8) {
+    background-image: url(../images/news.png);
+}
+
+.apps-container ul li:nth-child(9) {
+    background-image: url(../images/meet.png);
+}

@@ -14,8 +14,8 @@
             <ul>
                 <li><a class="" href="https://mail.google.com/mail/&amp;ogbl" target="_top">Gmail</a></li>
                 <li><a class="" href="https://www.google.com.uy/imghp?&amp;ogbl" target="_top">Imágenes</a></li>
-                <li class="icon-container dots">
-                    <div class="dots-icon">
+                <li class="icon-container dots" id="dots-li">
+                    <div class="dots-icon" id="dots">
                         <a  href=""></a>
                     </div>
                 </li>
@@ -26,65 +26,54 @@
                 </li>
             </ul>
         </nav>
+        <!-- section apps -->
+        <div class="apps-container hidden" id="apps">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+            </ul>
+        </div>
     </header>
 
     <section>
         <img class="logo" src="https://www.google.com.uy/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
         <div class="search-box">
 
-            <div class="search">
+            <div class="search" id="search">
                 <div class="lupa">
                     <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
                 </div>
-                <input type="text" >
+                <input type="text" id="search-input" title="Buscar" autocomplete="off">
                 <div class="search-buttons">
-                    <div class="search-buttons-item"><a href=""><svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path><path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path><path fill="#fbbc05" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path><path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path></svg></a></div>
-                    <div class="search-buttons-item"><a href=""><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IlN0YW5kYXJkX3Byb2R1Y3RfaWNvbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKCSB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE5MnB4IiBoZWlnaHQ9IjE5MnB4IiB2aWV3Qm94PSIwIDAgMTkyIDE5MiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTkyIDE5MiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxyZWN0IGlkPSJib3VuZGluZ19ib3hfMV8iIGZpbGw9Im5vbmUiIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIi8+CjxnIGlkPSJhcnRfbGF5ZXIiPgoJPGNpcmNsZSBpZD0iRG90IiBmaWxsPSIjNDI4NUY0IiBjeD0iOTYiIGN5PSIxMDQuMTUiIHI9IjI4Ii8+Cgk8cGF0aCBpZD0iUmVkIiBmaWxsPSIjRUE0MzM1IiBkPSJNMTYwLDcydjQwLjE1VjEzNmMwLDEuNjktMC4zNCwzLjI5LTAuODIsNC44MnYwdjBjLTEuNTcsNC45Mi01LjQzLDguNzgtMTAuMzUsMTAuMzVoMHYwCgkJYy0xLjUzLDAuNDktMy4xMywwLjgyLTQuODIsMC44Mkg2NmwxNiwxNmg1MGgxMmM0LjQyLDAsOC42My0wLjksMTIuNDYtMi41MWMzLjgzLTEuNjIsNy4yOC0zLjk2LDEwLjE3LTYuODYKCQljMS40NS0xLjQ1LDIuNzYtMy4wMywzLjkxLTQuNzRjMi4zLTMuNCwzLjk2LTcuMjgsNC44MS0xMS40NGMwLjQzLTIuMDgsMC42NS00LjI0LDAuNjUtNi40NXYtMTJWOTYuMTVWODRsLTYtMTlsLTEwLjgyLDIuMTgKCQlDMTU5LjY2LDY4LjcxLDE2MCw3MC4zMSwxNjAsNzJ6Ii8+Cgk8cGF0aCBpZD0iQmx1ZSIgZmlsbD0iIzQyODVGNCIgZD0iTTMyLDcyYzAtMS42OSwwLjM0LTMuMjksMC44Mi00LjgyYzEuNTctNC45Miw1LjQzLTguNzgsMTAuMzUtMTAuMzVDNDQuNzEsNTYuMzQsNDYuMzEsNTYsNDgsNTYKCQloOTZjMS42OSwwLDMuMjksMC4zNCw0LjgyLDAuODJjMCwwLDAsMCwwLDBMMTQ5LDQ1bC0xNy01bC0xNi0xNmgtMTMuNDRIOTZoLTYuNTZINzZMNjAsNDBINDhjLTE3LjY3LDAtMzIsMTQuMzMtMzIsMzJ2MTJ2MjBsMTYsMTYKCQlWNzJ6Ii8+Cgk8cGF0aCBpZD0iR3JlZW4iIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xNDQsNDBoLTEybDE2LjgzLDE2LjgzYzEuMjMsMC4zOSwyLjM5LDAuOTMsMy40NywxLjU5YzIuMTYsMS4zMiwzLjk3LDMuMTMsNS4yOSw1LjI5CgkJYzAuNjYsMS4wOCwxLjIsMi4yNCwxLjU5LDMuNDd2MEwxNzYsODRWNzJDMTc2LDU0LjMzLDE2MS42Nyw0MCwxNDQsNDB6Ii8+Cgk8cGF0aCBpZD0iWWVsbG93IiBmaWxsPSIjRkJCQzA0IiBkPSJNNDgsMTY4aDM5Ljg5bC0xNi0xNkg0OGMtOC44MiwwLTE2LTcuMTgtMTYtMTZ2LTIzLjg5bC0xNi0xNlYxMzZDMTYsMTUzLjY3LDMwLjMzLDE2OCw0OCwxNjh6CgkJIi8+CjwvZz4KPC9zdmc+Cg==" alt="Búsqueda con cámara" data-iml="1675535386169" data-atf="1" data-frt="0"></a></div>
+                    <div class="search-buttons-item"><a href=""><img src="images/micro.png" alt="Búsqueda por voz" title="Búsqueda por voz"></a></div>
+                    <div class="search-buttons-item"><a href=""><img src="images/camara.svg" alt="Búsqueda con cámara" title="Búsqueda por imagen"></a></div>
                 </div>
             </div>
             <!-- section busqueda -->
-            <div class="busqueda">
+            <div class="busqueda hidden" id="search-box">
                 <div class="busqueda-line"></div>
-                <ul>
+                <ul id="search-list">
                     <li>
                         <div class="recent-img"></div>   
-                        <span>Reciente</span>
+                        <span>Aquí se muestran las búsquedas recientes</span>
+                        <div class="borrar">Borrar</div>
                     </li>
                     <li>
                         <div class="recent-img"></div>   
-                        <span>Reciente</span>
+                        <span>Busca algo nuevo y quedará en el historial</span>
+                        <div class="borrar">Borrar</div>
                     </li>
                     <li>
                         <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
-                    </li>
-                    <li>
-                        <div class="recent-img"></div>   
-                        <span>Reciente</span>
+                        <span>Has click en 'Borrar' para eliminar este item</span>
+                        <div class="borrar">Borrar</div>
                     </li>
                 </ul>
                 <div class="botones">
@@ -115,7 +104,126 @@
             <li><a href="">Preferencias</a></li>
         </ul>
         </div>
-    </footer>    
+    </footer>   
+    
+    <script>
+        let input = document.getElementById('search-input')
+        let box = document.getElementById('search-box')
+        let search = document.getElementById('search')
+        let searchList = document.getElementById('search-list')
+        let apps = document.getElementById('apps')
+        let dots = document.getElementById('dots')
+        let dotsLi = document.getElementById('dots-li')
+
+
+        // Eventos
+        dots.addEventListener('click', abrirApps)
+        //dotsLi.addEventListener('click', abrirApps)
+        input.addEventListener('click',()=>{
+            abrirSearchBox()
+            cerrarApps()
+        })
+
+        // funcion abrir apps
+        function abrirApps() {
+            //console.log('funcion abrir apps',apps.classList[1])
+            if (apps.classList.contains('hidden'))
+                apps.classList.remove('hidden')
+            else    
+                apps.classList.add('hidden')
+        }
+
+        // funcion abrir search
+        function abrirSearchBox() {
+            console.log('funcion abrir search box')
+            box.classList.remove('hidden')
+            search.classList.add('search-popup')
+        }
+
+        // funcion cerrar apps
+        function cerrarApps() {
+            apps.classList.add('hidden')
+            console.log('funcion cerrar apps')
+        }
+
+        // funcion cerrar search
+        function cerrarSearchBox()  {
+            console.log('funcion cerrarSearchBox')
+            box.classList.add('hidden')
+            search.classList.remove('search-popup')
+        }
+
+        
+
+
+        // Agregar busqueda a historial
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                crearChildNode(input.value)
+                input.value = ''
+            }
+        });
+
+        // Crear hijo en historial
+        function crearChildNode(entrada) {
+            let item = document.createElement("li")
+            let div1 = document.createElement("div")
+            let div2 = document.createElement("div")
+            let span = document.createElement("span")
+
+            span.innerHTML = entrada
+            div1.classList.add("recent-img")
+            div2.classList.add("borrar")
+            div2.innerHTML = 'Borrar'
+            item.appendChild(div1)
+            item.appendChild(span)
+            item.appendChild(div2)
+            console.log('item creado ',item)
+            searchList.appendChild(item)
+        }
+
+        // Evento click genérico
+        // 
+        document.addEventListener('click',function(e) {
+            const isBox = e.target.closest('#search-box')
+            const isApps = e.target.closest('#apps')
+            const isDots = (e.target.id == 'dots' || e.target.id == 'dots-li')
+
+            // Si hago click en una de las ventanas 
+            if (isBox != null) {
+                // Estoy dentro de la caja de búsqueda
+                console.log('Generico - isBox') 
+
+                // Borrar elemento buscado
+                if (e.target.classList =='borrar') {
+                    const linea = e.target.parentNode
+                    linea.remove()
+                } else if (e.target.localName == 'span') {
+                    // Copiar historial a búsqueda actual
+                    input.value = e.target.innerHTML
+                }
+            } else if (isApps != null) {
+                // Estoy dentro de la caja de apps
+                
+                console.log('Generico - isApps')
+
+            } else if (isDots) {
+                console.log('Generico - isDots')
+                cerrarSearchBox()
+
+            } else if (e.target.localName !='input') {
+                // // Estoy en otro lado de la pantalla, cierro todos los popups
+                console.log('Generico - else')
+
+                // // Cerrar search box
+                cerrarSearchBox()
+
+                // // Cerrar apps
+                cerrarApps()
+            }
+        })
+
+    </script>
 </main>
 </body>
 </html>
