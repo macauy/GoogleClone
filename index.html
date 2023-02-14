@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main>
+    
     <header>
         <nav>
             <ul>
@@ -29,15 +29,18 @@
         <!-- section apps -->
         <div class="apps-container hidden" id="apps">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
+                <li><span>Drive</span></li>
+                <li><span>Calendario</span></li>
+                <li>Mapas</li>
+                <li>Play</li>
+                <li>Gmail</om></li>
+                <li>Búsqueda</ail></li>
+                <li>Negocios</bhp></li>
+                <li>Youtube</li>
+                <li>Fotos</om></li>
+                <li>Noticias</li>
+                <li>Meet</li>
+                <li>Chat</li>
             </ul>
         </div>
     </header>
@@ -107,13 +110,13 @@
     </footer>   
     
     <script>
-        let input = document.getElementById('search-input')
-        let box = document.getElementById('search-box')
-        let search = document.getElementById('search')
-        let searchList = document.getElementById('search-list')
-        let apps = document.getElementById('apps')
-        let dots = document.getElementById('dots')
-        let dotsLi = document.getElementById('dots-li')
+        const input = document.getElementById('search-input')
+        const box = document.getElementById('search-box')
+        const search = document.getElementById('search')
+        const searchList = document.getElementById('search-list')
+        const apps = document.getElementById('apps')
+        const dots = document.getElementById('dots')
+        const dotsLi = document.getElementById('dots-li')
 
 
         // Eventos
@@ -187,7 +190,7 @@
         document.addEventListener('click',function(e) {
             const isBox = e.target.closest('#search-box')
             const isApps = e.target.closest('#apps')
-            const isDots = (e.target.id == 'dots' || e.target.id == 'dots-li')
+            const isDots = (e.target.id == 'dots' || e.target.innerHTML.id == 'dots')
 
             // Si hago click en una de las ventanas 
             if (isBox != null) {
