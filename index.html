@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/181a2bd762.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     
@@ -26,18 +29,18 @@
                 </li>
             </ul>
         </nav>
-        <!-- section apps -->
+        <!-- section apps desplegable-->
         <div class="apps-container hidden" id="apps">
             <ul>
-                <li><span>Drive</span></li>
-                <li><span>Calendario</span></li>
+                <li>Drive</li>
+                <li>Calendario</li>
                 <li>Mapas</li>
                 <li>Play</li>
-                <li>Gmail</om></li>
-                <li>Búsqueda</ail></li>
-                <li>Negocios</bhp></li>
+                <li>Gmail</li>
+                <li>Búsqueda</li>
+                <li>Negocios</li>
                 <li>Youtube</li>
-                <li>Fotos</om></li>
+                <li>Fotos</li>
                 <li>Noticias</li>
                 <li>Meet</li>
                 <li>Chat</li>
@@ -55,11 +58,13 @@
                 </div>
                 <input type="text" id="search-input" title="Buscar" autocomplete="off">
                 <div class="search-buttons">
+                    <svg id="cross" class="hidden" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                     <div class="search-buttons-item"><a href=""><img src="images/micro.png" alt="Búsqueda por voz" title="Búsqueda por voz"></a></div>
                     <div class="search-buttons-item"><a href=""><img src="images/camara.svg" alt="Búsqueda con cámara" title="Búsqueda por imagen"></a></div>
                 </div>
             </div>
-            <!-- section busqueda -->
+
+            <!-- section busqueda desplegable -->
             <div class="busqueda hidden" id="search-box">
                 <div class="busqueda-line"></div>
                 <ul id="search-list">
@@ -116,12 +121,10 @@
         const searchList = document.getElementById('search-list')
         const apps = document.getElementById('apps')
         const dots = document.getElementById('dots')
-        const dotsLi = document.getElementById('dots-li')
-
+        const cross = document.getElementById('cross')
 
         // Eventos
         dots.addEventListener('click', abrirApps)
-        //dotsLi.addEventListener('click', abrirApps)
         input.addEventListener('click',()=>{
             abrirSearchBox()
             cerrarApps()
@@ -129,7 +132,6 @@
 
         // funcion abrir apps
         function abrirApps() {
-            //console.log('funcion abrir apps',apps.classList[1])
             if (apps.classList.contains('hidden'))
                 apps.classList.remove('hidden')
             else    
@@ -138,7 +140,6 @@
 
         // funcion abrir search
         function abrirSearchBox() {
-            console.log('funcion abrir search box')
             box.classList.remove('hidden')
             search.classList.add('search-popup')
         }
@@ -146,21 +147,29 @@
         // funcion cerrar apps
         function cerrarApps() {
             apps.classList.add('hidden')
-            console.log('funcion cerrar apps')
         }
 
         // funcion cerrar search
         function cerrarSearchBox()  {
-            console.log('funcion cerrarSearchBox')
             box.classList.add('hidden')
             search.classList.remove('search-popup')
         }
 
         
+        // Limpiar búsqueda
+        cross.addEventListener('click',()=> {
+            input.value = ""
+            cross.classList.add('hidden')
+        })
 
 
-        // Agregar busqueda a historial
+        // Evento escribir en search
         input.addEventListener("keypress", function(event) {
+
+            // Habilitar cerrar
+            cross.classList.remove('hidden')
+
+            // Agregar busqueda a historial al dar enter
             if (event.key === "Enter") {
                 crearChildNode(input.value)
                 input.value = ''
@@ -181,12 +190,12 @@
             item.appendChild(div1)
             item.appendChild(span)
             item.appendChild(div2)
-            console.log('item creado ',item)
             searchList.appendChild(item)
         }
 
+
         // Evento click genérico
-        // 
+        // Si estoy fuera de los boxes cierro lo que esté desplegado
         document.addEventListener('click',function(e) {
             const isBox = e.target.closest('#search-box')
             const isApps = e.target.closest('#apps')
@@ -195,7 +204,6 @@
             // Si hago click en una de las ventanas 
             if (isBox != null) {
                 // Estoy dentro de la caja de búsqueda
-                console.log('Generico - isBox') 
 
                 // Borrar elemento buscado
                 if (e.target.classList =='borrar') {
@@ -208,20 +216,16 @@
             } else if (isApps != null) {
                 // Estoy dentro de la caja de apps
                 
-                console.log('Generico - isApps')
-
             } else if (isDots) {
-                console.log('Generico - isDots')
                 cerrarSearchBox()
 
             } else if (e.target.localName !='input') {
-                // // Estoy en otro lado de la pantalla, cierro todos los popups
-                console.log('Generico - else')
-
-                // // Cerrar search box
+                // Estoy en otro lado de la pantalla, cierro todos los popups
+                
+                // Cerrar search box
                 cerrarSearchBox()
 
-                // // Cerrar apps
+                // Cerrar apps
                 cerrarApps()
             }
         })

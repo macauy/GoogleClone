@@ -257,7 +257,17 @@ section {
 
 .search-buttons-item {
     width: 24px;
-    height: 24px;    
+    height: 24px;   
+    margin: 0 8px; 
+}
+
+.search-buttons svg {
+    fill: #70757a;
+    padding-right: 10px;
+    border-right: 1px solid #dadce0;
+    width: 36px;
+    height: 36px; 
+    cursor: pointer;
 }
 
 .search-buttons-item img {
@@ -344,6 +354,7 @@ footer .footer-right {
 /*********** END FOOTER ***********/
 
 
+/*********** APPS POPUP ***********/
 .apps-container {
     background: #fff;
     border: 1px solid rgba(0,0,0,.2);
@@ -444,5 +455,5 @@ footer .footer-right {
 .apps-container ul li:nth-child(12) {
     background-image: url(../images/hangouts.png);
 }
-
+/*********** END APPS ***********/
 
